@@ -2910,6 +2910,9 @@ The expression in the \grammarterm{requires-clause} is equivalent to:
 
 \rSec3[range.iota.iterator]{Class \tcode{iota_view::\exposid{iterator}}}
 
+\indexlibrarymember{iterator_category}{iota_view::\exposid{iterator}}%
+\indexlibrarymember{value_type}{iota_view::\exposid{iterator}}%
+\indexlibrarymember{difference_type}{iota_view::\exposid{iterator}}%
 \begin{codeblock}
 namespace std::ranges {
   template<@\libconcept{weakly_incrementable}@ W, @\libconcept{semiregular}@ Bound>
@@ -2971,6 +2974,7 @@ namespace std::ranges {
 }
 \end{codeblock}
 
+\indexlibrarymember{iterator_concept}{iota_view::\exposid{iterator}}%
 \pnum
 \tcode{\exposid{iterator}::iterator_concept} is defined as follows:
 \begin{itemize}
@@ -3521,6 +3525,10 @@ Equivalent to: \tcode{return \exposid{to-unsigned-like}(\exposid{bound_});}
 
 \rSec3[range.repeat.iterator]{Class \tcode{repeat_view::\exposid{iterator}}}
 
+\indexlibrarymember{iterator_concept}{repeat_view::\exposid{iterator}}%
+\indexlibrarymember{iterator_category}{repeat_view::\exposid{iterator}}%
+\indexlibrarymember{value_type}{repeat_view::\exposid{iterator}}%
+\indexlibrarymember{difference_type}{repeat_view::\exposid{iterator}}%
 \begin{codeblock}
 namespace std::ranges {
   template<@\libconcept{move_constructible}@ T, @\libconcept{semiregular}@ Bound = unreachable_sentinel_t>
@@ -3869,6 +3877,9 @@ Equivalent to: \tcode{return default_sentinel;}
 
 \rSec3[range.istream.iterator]{Class \tcode{basic_istream_view::\exposid{iterator}}}
 
+\indexlibrarymember{iterator_concept}{basic_istream_view::\exposid{iterator}}%
+\indexlibrarymember{difference_type}{basic_istream_view::\exposid{iterator}}%
+\indexlibrarymember{value_type}{basic_istream_view::\exposid{iterator}}%
 \begin{codeblock}
 namespace std::ranges {
   template<@\libconcept{movable}@ Val, class CharT, class Traits>
@@ -4619,6 +4630,8 @@ this function caches the result within the
 \rSec3[range.filter.iterator]{Class \tcode{filter_view::\exposid{iterator}}}
 
 \indexlibrarymember{iterator}{filter_view}%
+\indexlibrarymember{value_type}{filter_view::\exposid{iterator}}%
+\indexlibrarymember{difference_type}{filter_view::\exposid{iterator}}%
 \begin{codeblock}
 namespace std::ranges {
   template<@\libconcept{input_range}@ V, @\libconcept{indirect_unary_predicate}@<iterator_t<V>> Pred>
@@ -4668,6 +4681,7 @@ Modification of the element a \tcode{filter_view::\exposid{iterator}} denotes is
 permitted, but results in undefined behavior if the resulting value does not
 satisfy the filter predicate.
 
+\indexlibrarymember{iterator_concept}{filter_view::\exposid{iterator}}%
 \pnum
 \tcode{\exposid{iterator}::iterator_concept} is defined as follows:
 \begin{itemize}
@@ -4680,6 +4694,7 @@ satisfy the filter predicate.
 \item Otherwise, \tcode{iterator_concept} denotes \tcode{input_iterator_tag}.
 \end{itemize}
 
+\indexlibrarymember{iterator_category}{filter_view::\exposid{iterator}}%
 \pnum
 The member \grammarterm{typedef-name} \tcode{iterator_category} is defined
 if and only if \tcode{V} models \libconcept{forward_range}.
@@ -5109,6 +5124,8 @@ return @\exposid{iterator}@<true>{*this, ranges::end(@\exposid{base_}@)};
 
 \rSec3[range.transform.iterator]{Class template \tcode{transform_view::\exposid{iterator}}}
 
+\indexlibrarymember{value_type}{transform_view::\exposid{iterator}}%
+\indexlibrarymember{difference_type}{transform_view::\exposid{iterator}}%
 \begin{codeblock}
 namespace std::ranges {
   template<@\libconcept{input_range}@ V, @\libconcept{move_constructible}@ F>
@@ -5187,6 +5204,7 @@ namespace std::ranges {
 }
 \end{codeblock}
 
+\indexlibrarymember{iterator_concept}{transform_view::\exposid{iterator}}%
 \pnum
 \tcode{\exposid{iterator}::iterator_concept} is defined as follows:
 \begin{itemize}
@@ -5202,6 +5220,7 @@ namespace std::ranges {
 \item Otherwise, \tcode{iterator_concept} denotes \tcode{input_iterator_tag}.
 \end{itemize}
 
+\indexlibrarymember{iterator_category}{transform_view::\exposid{iterator}}%
 \pnum
 The member \grammarterm{typedef-name} \tcode{iterator_category} is defined
 if and only if \exposid{Base} models \libconcept{forward_range}.
@@ -6475,6 +6494,7 @@ Initializes \exposid{base_} with \tcode{std::move(base)}.
 
 \rSec3[range.join.iterator]{Class template \tcode{join_view::\exposid{iterator}}}
 
+\indexlibrarymember{value_type}{join_view::\exposid{iterator}}%
 \begin{codeblock}
 namespace std::ranges {
   template<@\libconcept{input_range}@ V>
@@ -6546,6 +6566,7 @@ namespace std::ranges {
 }
 \end{codeblock}
 
+\indexlibrarymember{iterator_concept}{join_view::\exposid{iterator}}%
 \pnum
 \tcode{\exposid{iterator}::iterator_concept} is defined as follows:
 \begin{itemize}
@@ -6561,6 +6582,7 @@ namespace std::ranges {
 \item Otherwise, \tcode{iterator_concept} denotes \tcode{input_iterator_tag}.
 \end{itemize}
 
+\indexlibrarymember{iterator_category}{join_view::\exposid{iterator}}%
 \pnum
 The member \grammarterm{typedef-name} \tcode{iterator_category} is defined
 if and only if \exposid{ref-is-glvalue} is \tcode{true},
@@ -6586,6 +6608,7 @@ In that case,
   \tcode{iterator_category} denotes \tcode{input_iterator_tag}.
 \end{itemize}
 
+\indexlibrarymember{difference_type}{join_view::\exposid{iterator}}%
 \pnum
 \tcode{iterator::difference_type} denotes the type:
 \begin{codeblock}
@@ -7068,6 +7091,7 @@ namespace std::ranges {
 }
 \end{codeblock}
 
+\indexlibrarymember{iterator_concept}{join_with_view::\exposid{iterator}}%
 \pnum
 \tcode{\exposid{iterator}::iterator_concept} is defined as follows:
 \begin{itemize}
@@ -7085,6 +7109,7 @@ then \tcode{iterator_concept} denotes \tcode{forward_iterator_tag}.
 Otherwise, \tcode{iterator_concept} denotes \tcode{input_iterator_tag}.
 \end{itemize}
 
+\indexlibrarymember{iterator_category}{join_with_view::\exposid{iterator}}%
 \pnum
 The member \grammarterm{typedef-name} \tcode{iterator_category} is defined
 if and only if \exposid{ref-is-glvalue} is \tcode{true}, and
@@ -7124,12 +7149,14 @@ each model \tcode{\libconcept{derived_from}<forward_iterator_tag>},
 Otherwise, \tcode{iterator_category} denotes \tcode{input_iterator_tag}.
 \end{itemize}
 
+\indexlibrarymember{value_type}{join_with_view::\exposid{iterator}}%
 \pnum
 \tcode{\exposid{iterator}::value_type} denotes the type:
 \begin{codeblock}
 common_type_t<iter_value_t<@\exposid{InnerIter}@>, iter_value_t<@\exposid{PatternIter}@>>
 \end{codeblock}
 
+\indexlibrarymember{difference_type}{join_with_view::\exposid{iterator}}%
 \pnum
 \tcode{\exposid{iterator}::difference_type} denotes the type:
 \begin{codeblock}
@@ -7578,6 +7605,10 @@ Initializes \exposid{base_} with \tcode{views::all(std::forward<R>(r))}, and
 \rSec3[range.lazy.split.outer]{Class template \tcode{lazy_split_view::\exposid{outer-iterator}}}
 
 \indexlibraryglobal{lazy_split_view::\exposid{outer-iterator}}%
+\indexlibrarymember{iterator_concept}{lazy_split_view::\exposid{outer-iterator}}%
+\indexlibrarymember{iterator_category}{lazy_split_view::\exposid{outer-iterator}}%
+\indexlibrarymember{value_type}{lazy_split_view::\exposid{outer-iterator}}%
+\indexlibrarymember{difference_type}{lazy_split_view::\exposid{outer-iterator}}%
 \begin{codeblock}
 namespace std::ranges {
   template<@\libconcept{input_range}@ V, @\libconcept{forward_range}@ Pattern>
@@ -7820,6 +7851,9 @@ Equivalent to: \tcode{return default_sentinel;}
 \rSec3[range.lazy.split.inner]{Class template \tcode{lazy_split_view::\exposid{inner-iterator}}}
 
 \indexlibraryglobal{lazy_split_view::\exposid{inner-iterator}}%
+\indexlibrarymember{iterator_concept}{lazy_split_view::\exposid{inner-iterator}}%
+\indexlibrarymember{value_type}{lazy_split_view::\exposid{inner-iterator}}%
+\indexlibrarymember{difference_type}{lazy_split_view::\exposid{inner-iterator}}%
 \begin{codeblock}
 namespace std::ranges {
   template<@\libconcept{input_range}@ V, @\libconcept{forward_range}@ Pattern>
@@ -7876,6 +7910,7 @@ namespace std::ranges {
 }
 \end{codeblock}
 
+\indexlibrarymember{iterator_category}{lazy_split_view::\exposid{inner-iterator}}%
 \pnum
 If \exposid{Base} does not model \libconcept{forward_range}
 there is no member \tcode{iterator_category}.
@@ -8141,6 +8176,10 @@ return {b, e};
 
 \rSec3[range.split.iterator]{Class \tcode{split_view::\exposid{iterator}}}
 
+\indexlibrarymember{iterator_concept}{split_view::\exposid{iterator}}%
+\indexlibrarymember{iterator_category}{split_view::\exposid{iterator}}%
+\indexlibrarymember{value_type}{split_view::\exposid{iterator}}%
+\indexlibrarymember{difference_type}{split_view::\exposid{iterator}}%
 \begin{codeblock}
 namespace std::ranges {
   template<@\libconcept{forward_range}@ V, @\libconcept{forward_range}@ Pattern>
@@ -8832,6 +8871,8 @@ Initializes \exposid{base_} with \tcode{std::move(base)}.
 
 \rSec3[range.elements.iterator]{Class template \tcode{elements_view::\exposid{iterator}}}
 
+\indexlibrarymember{value_type}{elements_view::\exposid{iterator}}%
+\indexlibrarymember{difference_type}{elements_view::\exposid{iterator}}%
 \begin{codeblock}
 namespace std::ranges {
   template<@\libconcept{input_range}@ V, size_t N>
@@ -8905,6 +8946,7 @@ namespace std::ranges {
 }
 \end{codeblock}
 
+\indexlibrarymember{iterator_concept}{elements_view::\exposid{iterator}}%
 \pnum
 The member \grammarterm{typedef-name} \tcode{iterator_concept}
 is defined as follows:
@@ -8922,6 +8964,7 @@ then \tcode{iterator_concept} denotes \tcode{forward_iterator_tag}.
 Otherwise, \tcode{iterator_concept} denotes \tcode{input_iterator_tag}.
 \end{itemize}
 
+\indexlibrarymember{iterator_category}{elements_view::\exposid{iterator}}%
 \pnum
 The member \grammarterm{typedef-name} \tcode{iterator_category} is defined
 if and only if \exposid{Base} models \libconcept{forward_range}.
@@ -9483,6 +9526,9 @@ return apply([](auto... sizes) {
 
 \rSec3[range.zip.iterator]{Class template \tcode{zip_view::\exposid{iterator}}}
 
+\indexlibrarymember{iterator_category}{zip_view::\exposid{iterator}}%
+\indexlibrarymember{value_type}{zip_view::\exposid{iterator}}%
+\indexlibrarymember{difference_type}{zip_view::\exposid{iterator}}%
 \begin{codeblock}
 namespace std::ranges {
   template<bool Const, class... Views>
@@ -9552,6 +9598,7 @@ namespace std::ranges {
 }
 \end{codeblock}
 
+\indexlibrarymember{iterator_concept}{zip_view::\exposid{iterator}}%
 \pnum
 \tcode{\exposid{iterator}::iterator_concept} is defined as follows:
 \begin{itemize}
@@ -10106,6 +10153,9 @@ Initializes \exposid{fun_} with \tcode{std::move(fun)} and
 
 \rSec3[range.zip.transform.iterator]{Class template \tcode{zip_transform_view::\exposid{iterator}}}
 
+\indexlibrarymember{iterator_concept}{zip_transform_view::\exposid{iterator}}%
+\indexlibrarymember{value_type}{zip_transform_view::\exposid{iterator}}%
+\indexlibrarymember{difference_type}{zip_transform_view::\exposid{iterator}}%
 \begin{codeblock}
 namespace std::ranges {
   template<@\libconcept{move_constructible}@ F, @\libconcept{input_range}@... Views>
@@ -10165,6 +10215,7 @@ namespace std::ranges {
 }
 \end{codeblock}
 
+\indexlibrarymember{iterator_category}{zip_transform_view::\exposid{iterator}}%
 \pnum
 The member \grammarterm{typedef-name}
 \tcode{\exposid{iterator}::iterator_category}
@@ -10625,6 +10676,9 @@ return static_cast<ST>(sz);
 
 \rSec3[range.adjacent.iterator]{Class template \tcode{adjacent_view::\exposid{iterator}}}
 
+\indexlibrarymember{iterator_category}{zip_transform_view::\exposid{iterator}}%
+\indexlibrarymember{value_type}{zip_transform_view::\exposid{iterator}}%
+\indexlibrarymember{difference_type}{zip_transform_view::\exposid{iterator}}%
 \begin{codeblock}
 namespace std::ranges {
   template<@\libconcept{forward_range}@ V, size_t N>
@@ -10690,6 +10744,7 @@ namespace std::ranges {
 }
 \end{codeblock}
 
+\indexlibrarymember{iterator_concept}{zip_transform_view::\exposid{iterator}}%
 \pnum
 \tcode{\exposid{iterator}::iterator_concept} is defined as follows:
 \begin{itemize}
@@ -11258,6 +11313,9 @@ Initializes \exposid{fun_} with \tcode{std::move(fun)} and
 
 \rSec3[range.adjacent.transform.iterator]{Class template \tcode{adjacent_transform_view::\exposid{iterator}}}
 
+\indexlibrarymember{iterator_concept}{adjacent_transform_view::\exposid{iterator}}%
+\indexlibrarymember{value_type}{adjacent_transform_view::\exposid{iterator}}%
+\indexlibrarymember{difference_type}{adjacent_transform_view::\exposid{iterator}}%
 \begin{codeblock}
 namespace std::ranges {
   template<@\libconcept{forward_range}@ V, @\libconcept{move_constructible}@ F, size_t N>
@@ -11320,6 +11378,7 @@ namespace std::ranges {
 }
 \end{codeblock}
 
+\indexlibrarymember{iterator_category}{adjacent_transform_view::\exposid{iterator}}%
 \pnum
 The member \grammarterm{typedef-name} \tcode{\exposid{iterator}::iterator_category}
 is defined as follows:
@@ -11682,6 +11741,7 @@ for (auto r : v | views::chunk(2)) {
 
 \rSec3[range.chunk.view.input]{Class template \tcode{chunk_view} for input ranges}
 
+\indexlibraryglobal{chunk_view}%
 \indexlibrarymember{begin}{chunk_view}%
 \indexlibrarymember{end}{chunk_view}%
 \indexlibrarymember{size}{chunk_view}%
@@ -11784,7 +11844,9 @@ return @\exposid{to-unsigned-like}@(@\exposidnc{div-ceil}@(ranges::distance(@\ex
 
 \rSec3[range.chunk.outer.iter]{Class \tcode{chunk_view::\exposid{outer-iterator}}}
 
-\indexlibraryglobal{chunk_view::outer-iterator}%
+\indexlibraryglobal{chunk_view::\exposid{outer-iterator}}%
+\indexlibrarymember{iterator_concept}{chunk_view::\exposid{outer-iterator}}%
+\indexlibrarymember{difference_type}{chunk_view::\exposid{outer-iterator}}%
 \begin{codeblock}
 namespace std::ranges {
   template<@\libconcept{view}@ V>
@@ -11915,7 +11977,8 @@ Equivalent to: \tcode{return -(y - x);}
 
 \rSec3[range.chunk.outer.value]{Class \tcode{chunk_view::\exposid{outer-iterator}::value_type}}
 
-\indexlibraryglobal{chunk_view::outer-iterator::value_type}%
+\indexlibraryglobal{chunk_view::\exposid{outer-iterator}::value_type}%
+\indexlibrarymember{value_type}{chunk_view::\exposid{outer-iterator}}%
 \begin{codeblock}
 namespace std::ranges {
   template<@\libconcept{view}@ V>
@@ -11983,7 +12046,10 @@ return @\exposid{to-unsigned-like}@(ranges::min(@\exposid{parent_}@->@\exposid{r
 
 \rSec3[range.chunk.inner.iter]{Class \tcode{chunk_view::\exposid{inner-iterator}}}
 
-\indexlibraryglobal{chunk_view::inner-iterator}%
+\indexlibraryglobal{chunk_view::\exposid{inner-iterator}}%
+\indexlibrarymember{iterator_concept}{chunk_view::\exposid{inner-iterator}}%
+\indexlibrarymember{difference_type}{chunk_view::\exposid{inner-iterator}}%
+\indexlibrarymember{value_type}{chunk_view::\exposid{inner-iterator}}%
 \begin{codeblock}
 namespace std::ranges {
   template<@\libconcept{view}@ V>
@@ -12208,6 +12274,9 @@ return @\exposid{to-unsigned-like}@(@\exposid{div-ceil}@(ranges::distance(@\expo
 
 \rSec3[range.chunk.fwd.iter]{Class template \tcode{chunk_view::\exposid{iterator}} for forward ranges}
 
+\indexlibrarymember{iterator_category}{chunk_view::\exposid{iterator}}%
+\indexlibrarymember{value_type}{chunk_view::\exposid{iterator}}%
+\indexlibrarymember{difference_type}{chunk_view::\exposid{iterator}}%
 \begin{codeblock}
 namespace std::ranges {
   template<@\libconcept{view}@ V>
@@ -12285,6 +12354,7 @@ namespace std::ranges {
 }
 \end{codeblock}
 
+\indexlibrarymember{iterator_concept}{chunk_view::\exposid{iterator}}%
 \pnum
 \tcode{\exposid{iterator}::iterator_concept} is defined as follows:
 \begin{itemize}
@@ -12807,6 +12877,9 @@ return @\exposid{to-unsigned-like}@(sz);
 
 \rSec3[range.slide.iterator]{Class template \tcode{slide_view::\exposid{iterator}}}
 
+\indexlibrarymember{iterator_category}{slide_view::\exposid{iterator}}%
+\indexlibrarymember{value_type}{slide_view::\exposid{iterator}}%
+\indexlibrarymember{difference_type}{slide_view::\exposid{iterator}}%
 \begin{codeblock}
 namespace std::ranges {
   template<@\libconcept{forward_range}@ V>
@@ -12877,6 +12950,7 @@ namespace std::ranges {
 }
 \end{codeblock}
 
+\indexlibrarymember{iterator_concept}{slide_view::\exposid{iterator}}%
 \pnum
 \tcode{\exposid{iterator}::iterator_concept} is defined as follows:
 \begin{itemize}
@@ -13439,6 +13513,9 @@ is \tcode{false}.
 
 \rSec3[range.chunk.by.iter]{Class \tcode{chunk_by_view::\exposid{iterator}}}
 
+\indexlibrarymember{value_type}{chunk_by_view::\exposid{iterator}}%
+\indexlibrarymember{difference_type}{chunk_by_view::\exposid{iterator}}%
+\indexlibrarymember{iterator_category}{chunk_by_view::\exposid{iterator}}%
 \begin{codeblock}
 namespace std::ranges {
   template<@\libconcept{forward_range}@ V, @\libconcept{indirect_binary_predicate}@<iterator_t<V>, iterator_t<V>> Pred>
@@ -13472,6 +13549,7 @@ namespace std::ranges {
 }
 \end{codeblock}
 
+\indexlibrarymember{iterator_concept}{chunk_by_view::\exposid{iterator}}%
 \pnum
 \tcode{\exposid{iterator}::iterator_concept} is defined as follows:
 \begin{itemize}
@@ -13719,6 +13797,8 @@ return @\exposid{to-unsigned-like}@(@\exposid{div-ceil}@(ranges::distance(@\expo
 
 \rSec3[range.stride.iterator]{Class template \tcode{stride_view::\exposid{iterator}}}
 
+\indexlibrarymember{difference_type}{stride_view::\exposid{iterator}}%
+\indexlibrarymember{value_type}{stride_view::\exposid{iterator}}%
 \begin{codeblock}
 namespace std::ranges {
   template<@\libconcept{input_range}@ V>
@@ -13810,6 +13890,7 @@ namespace std::ranges {
 }
 \end{codeblock}
 
+\indexlibrarymember{iterator_concept}{stride_view::\exposid{iterator}}%
 \pnum
 \tcode{\exposid{iterator}::iterator_concept} is defined as follows:
 \begin{itemize}
@@ -13826,6 +13907,7 @@ then \tcode{iterator_concept} denotes \tcode{forward_iterator_tag}.
 Otherwise, \tcode{iterator_concept} denotes \tcode{input_iterator_tag}.
 \end{itemize}
 
+\indexlibrarymember{iterator_category}{stride_view::\exposid{iterator}}%
 \pnum
 The member \grammarterm{typedef-name} \tcode{iterator_category} is defined
 if and only if \exposid{Base} models \libconcept{forward_range}.
@@ -14443,6 +14525,9 @@ $p$.
 
 \rSec3[range.cartesian.iterator]{Class template \tcode{cartesian_product_view::\exposid{iterator}}}
 
+\indexlibrarymember{iterator_category}{cartesian_product_view::\exposid{iterator}}%
+\indexlibrarymember{value_type}{cartesian_product_view::\exposid{iterator}}%
+\indexlibrarymember{reference}{cartesian_product_view::\exposid{iterator}}%
 \begin{codeblock}
 namespace std::ranges {
   template<@\libconcept{input_range}@ First, @\libconcept{forward_range}@... Vs>
@@ -14531,6 +14616,7 @@ namespace std::ranges {
 }
 \end{codeblock}
 
+\indexlibrarymember{iterator_concept}{cartesian_product_view::\exposid{iterator}}%
 \pnum
 \tcode{\exposid{iterator}::iterator_concept} is defined as follows:
 \begin{itemize}
@@ -14551,6 +14637,7 @@ then \tcode{iterator_concept} denotes \tcode{forward_iterator_tag}.
 Otherwise, \tcode{iterator_concept} denotes \tcode{input_iterator_tag}.
 \end{itemize}
 
+\indexlibrarymember{difference_type}{cartesian_product_view::\exposid{iterator}}%
 \pnum
 \tcode{\exposid{iterator}::difference_type} is
 an \impldef{type of \tcode{ranges::cartesian_product_view::\exposid{iterator}::difference_type}}

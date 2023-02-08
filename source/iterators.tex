@@ -911,6 +911,8 @@ shall be \keyword{void}
 for an iterator of class type \tcode{I}
 that does not support \tcode{operator->}.
 Additionally, in the case of an output iterator, the types
+\indexlibrarymember{value_type}{iterator_traits}%
+\indexlibrarymember{difference_type}{iterator_traits}%
 \begin{codeblock}
 iterator_traits<I>::value_type
 iterator_traits<I>::difference_type
@@ -3174,6 +3176,11 @@ Class template \tcode{reverse_iterator} is an iterator adaptor that iterates fro
 \rSec3[reverse.iterator]{Class template \tcode{reverse_iterator}}
 
 \indexlibraryglobal{reverse_iterator}%
+\indexlibrarymember{iterator_type}{reverse_iterator}%
+\indexlibrarymember{value_type}{reverse_iterator}%
+\indexlibrarymember{difference_type}{reverse_iterator}%
+\indexlibrarymember{pointer}{reverse_iterator}%
+\indexlibrarymember{reference}{reverse_iterator}%
 \begin{codeblock}
 namespace std {
   template<class Iterator>
@@ -3220,6 +3227,7 @@ namespace std {
 }
 \end{codeblock}
 
+\indexlibrarymember{iterator_concept}{reverse_iterator}%
 \pnum
 The member \grammarterm{typedef-name} \tcode{iterator_concept} denotes
 \begin{itemize}
@@ -3230,6 +3238,7 @@ The member \grammarterm{typedef-name} \tcode{iterator_concept} denotes
 \tcode{bidirectional_iterator_tag} otherwise.
 \end{itemize}
 
+\indexlibrarymember{iterator_category}{reverse_iterator}%
 \pnum
 The member \grammarterm{typedef-name} \tcode{iterator_category} denotes
 \begin{itemize}
@@ -4208,6 +4217,8 @@ Otherwise, \tcode{S}.
 
 \rSec3[const.iterators.iterator]{Class template \tcode{basic_const_iterator}}
 
+\indexlibrarymember{value_type}{basic_const_iterator}%
+\indexlibrarymember{difference_type}{basic_const_iterator}%
 \begin{codeblock}
 namespace std {
   template<class I>
@@ -4327,6 +4338,7 @@ if \tcode{I} is a specialization of \tcode{basic_const_iterator} and
 
 \rSec3[const.iterators.types]{Member types}
 
+\indexlibrarymember{iterator_concept}{basic_const_iterator}%
 \pnum
 \tcode{basic_const_iterator<Iterator>::iterator_concept} is defined as follows:
 \begin{itemize}
@@ -4346,6 +4358,7 @@ then \tcode{iterator_concept} denotes \tcode{forward_itera\-tor_tag}.
 Otherwise, \tcode{iterator_concept} denotes \tcode{input_iterator_tag}.
 \end{itemize}
 
+\indexlibrarymember{iterator_category}{basic_const_iterator}%
 \pnum
 The member \grammarterm{typedef-name} \tcode{iterator_category} is defined
 if and only if \tcode{Iterator} models \libconcept{forward_iterator}.
@@ -4724,6 +4737,11 @@ vector<string> v2(make_move_iterator(s.begin()),
 \rSec3[move.iterator]{Class template \tcode{move_iterator}}
 
 \indexlibraryglobal{move_iterator}%
+\indexlibrarymember{iterator_type}{move_iterator}%
+\indexlibrarymember{value_type}{move_iterator}%
+\indexlibrarymember{difference_type}{move_iterator}%
+\indexlibrarymember{pointer}{move_iterator}%
+\indexlibrarymember{reference}{move_iterator}%
 \begin{codeblock}
 namespace std {
   template<class Iterator>
@@ -4780,6 +4798,7 @@ namespace std {
 }
 \end{codeblock}
 
+\indexlibrarymember{iterator_concept}{move_iterator}%
 \pnum
 The member \grammarterm{typedef-name} \tcode{iterator_concept} is defined
 as follows:
@@ -4797,6 +4816,7 @@ then \tcode{iterator_concept} denotes \tcode{forward_itera\-tor_tag}.
 Otherwise, \tcode{iterator_concept} denotes \tcode{input_iterator_tag}.
 \end{itemize}
 
+\indexlibrarymember{iterator_category}{move_iterator}%
 \pnum
 The member \grammarterm{typedef-name} \tcode{iterator_category} is defined
 if and only if the \grammarterm{qualified-id}
@@ -5848,6 +5868,11 @@ and
 refer to the same (possibly past-the-end) element.
 
 \indexlibraryglobal{counted_iterator}%
+\indexlibrarymember{iterator_type}{counted_iterator}%
+\indexlibrarymember{value_type}{counted_iterator}%
+\indexlibrarymember{difference_type}{counted_iterator}%
+\indexlibrarymember{iterator_concept}{counted_iterator}%
+\indexlibrarymember{iterator_category}{counted_iterator}%
 \begin{codeblock}
 namespace std {
   template<@\libconcept{input_or_output_iterator}@ I>
